@@ -1,0 +1,17 @@
+<search-bar #Searching margin-bottom="1"></search-bar>
+
+<section
+  *ngIf="!Searching.value"
+  flex="auto"
+  overflow-x="hidden"
+  overflow-y="auto"
+>
+  <system-memory> </system-memory>
+
+  <system-cpu cursor="pointer"> </system-cpu>
+
+  <downloads *ngIf="chrome.downloads.downloadItems.length" cursor="pointer">
+  </downloads>
+
+  <system-info cursor="pointer"> </system-info>
+</section>

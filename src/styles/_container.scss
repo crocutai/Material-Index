@@ -1,0 +1,77 @@
+[display="grid"] {
+  display: grid;
+
+  @each $box in 4, 8, 12 {
+    &[grid-template-rows="#{$box}"] {
+      grid-template-rows: repeat(#{$box}, 1fr);
+    }
+    &[grid-template-columns="#{$box}"] {
+      grid-template-columns: repeat(#{$box}, 1fr);
+    }
+  }
+}
+
+[flex-center] {
+  display: flex  !important;
+  justify-content: center;
+  align-items: center;
+}
+
+[flex-baseline] {
+  display: flex  !important;
+  justify-content: center;
+  align-items: baseline;
+}
+
+[display="flex"] {
+  display: flex;
+
+  &[flex-direction="row"] {
+    flex-direction: row;
+  }
+
+  &[flex-direction="column"] {
+    flex-direction: column;
+  }
+
+  &[justify-content="center"] {
+    justify-content: center;
+  }
+
+  &[align-items="center"] {
+    align-items: center;
+  }
+}
+
+[flex="auto"] {
+  flex: 1 1 auto;
+}
+
+[flex="block"] {
+  flex: 0 0 auto;
+}
+
+[box-sizing="border-box"] {
+  box-sizing: border-box;
+}
+
+[box-sizing="content-box"] {
+  box-sizing: content-box;
+}
+
+/*
+ *  Width and Height
+ */
+$sizes: width, min-width, max-width, height, min-height, max-height;
+@each $size in $sizes {
+  [#{$size}="auto"] {
+    #{$size}: auto;
+  }
+
+  $lengths: 0, 25, 50, 75, 100;
+  @each $length in $lengths {
+    [#{$size}="#{$length}"] {
+      #{$size}: #{$length + "%"};
+    }
+  }
+}

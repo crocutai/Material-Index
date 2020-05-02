@@ -1,0 +1,10 @@
+<mat-selection-list height="100">
+  <mat-list-option
+    *ngFor="let option of options"
+    [selected]="option.isAvailable"
+    (click)="toggle(option)"
+  >
+    <mat-icon mat-list-icon>{{ option.icon }}</mat-icon>
+    <span>{{ option.label }}</span>
+  </mat-list-option>
+</mat-selection-list>

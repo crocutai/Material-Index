@@ -1,0 +1,35 @@
+:host {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+
+  &[orientation="landscape"],
+  &[orientation="square"] {
+    grid-template-areas:
+      "null      null    dashboard dashboard"
+      "null      null    dashboard dashboard"
+      "date-time weather dashboard dashboard"
+      "date-time weather dashboard dashboard";
+  }
+
+  &[orientation="portrait"] {
+    grid-template-areas:
+      "dashboard dashboard dashboard dashboard"
+      "dashboard dashboard dashboard dashboard"
+      "dashboard dashboard dashboard dashboard"
+      "date-time date-time weather   weather  ";
+  }
+}
+
+date-time {
+  grid-area: date-time;
+  align-self: flex-end;
+}
+
+dashboard {
+  grid-area: dashboard;
+}

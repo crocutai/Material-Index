@@ -1,0 +1,20 @@
+<mat-list>
+  <mat-list-item>
+    <mat-icon mat-list-icon>data_usage</mat-icon>
+
+    <div mat-line>
+      <h2 *ngIf="usage" flex-baseline margin-bottom="0.5">
+        <span>{{ available | StorageSize }}</span>
+        <small margin-left="0.5">available</small>
+        <div flex="auto"></div>
+        <small>{{ total | StorageSize }} total</small>
+      </h2>
+    </div>
+
+    <mat-progress-bar
+      mat-line
+      [mode]="usage ? 'determinate' : 'indeterminate'"
+      [value]="(available / total) * 100"
+    ></mat-progress-bar>
+  </mat-list-item>
+</mat-list>

@@ -1,0 +1,43 @@
+<aside>
+  <span class="search-engine-icon">G</span>
+  <input
+    [(ngModel)]="value"
+    type="text"
+    flex="auto"
+    placeholder="Search Google or type a URL"
+    (ngModelChange)="onChange()"
+  />
+  <mat-icon (click)="openUrl(value)">search</mat-icon>
+</aside>
+
+<mat-nav-list
+  *ngIf="value"
+  display="flex"
+  flex-direction="column"
+  class=" mat-elevation-z8"
+  flex="auto"
+  margin-x="0.25"
+  margin-top="1.5"
+  border-radius="0.5"
+  overflow-y="auto"
+>
+  <mat-list-item *ngFor="let tab of tabs" (click)="openTab(tab.id)">
+    <img *ngIf="tab.favIconUrl" mat-list-icon [src]="tab.favIconUrl" />
+    <mat-icon *ngIf="!tab.favIconUrl" mat-list-icon>tab</mat-icon>
+
+    <h4 mat-line>{{ tab.title }}</h4>
+    <p mat-line>{{ tab.url }}</p>
+  </mat-list-item>
+
+  <mat-divider *ngIf="tabs.length && urls.length"></mat-divider>
+
+  <mat-list-item *ngFor="let url of urls" (click)="openUrl(url)">
+    <mat-icon mat-list-icon>search</mat-icon>
+    <h4>{{ url }}</h4>
+  </mat-list-item>
+
+  <mat-list-item (click)="openUrl(value)">
+    <mat-icon mat-list-icon>search</mat-icon>
+    <h4>{{ value }} <small>- Google Search</small></h4>
+  </mat-list-item>
+</mat-nav-list>

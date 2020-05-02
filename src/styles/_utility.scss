@@ -1,0 +1,110 @@
+$spacing: 0;
+@while $spacing < 4.5 {
+  [border-width="#{spacing}"] {
+    border-width: #{$spacing}rem;
+  }
+
+  [border-radius="#{$spacing}"] {
+    border-radius: #{$spacing}rem;
+  }
+
+  [outline-width="#{$spacing}"] {
+    outline-width: #{$spacing}rem;
+  }
+
+  [margin="#{$spacing}"] {
+    margin: #{$spacing}rem;
+  }
+
+  [margin-top="#{$spacing}"] {
+    margin-top: #{$spacing}rem;
+  }
+
+  [margin-bottom="#{$spacing}"] {
+    margin-bottom: #{$spacing}rem;
+  }
+
+  [margin-left="#{$spacing}"] {
+    margin-left: #{$spacing}rem;
+  }
+
+  [margin-right="#{$spacing}"] {
+    margin-right: #{$spacing}rem;
+  }
+
+  [margin-x="#{$spacing}"] {
+    margin-left: #{$spacing}rem;
+    margin-right: #{$spacing}rem;
+  }
+
+  [margin-y="#{$spacing}"] {
+    margin-top: #{$spacing}rem;
+    margin-bottom: #{$spacing}rem;
+  }
+
+  [padding="#{$spacing}"] {
+    padding: #{$spacing}rem;
+  }
+
+  [padding-top="#{$spacing}"] {
+    padding-top: #{$spacing}rem;
+  }
+
+  [padding-bottom="#{$spacing}"] {
+    padding-bottom: #{$spacing}rem;
+  }
+
+  [padding-left="#{$spacing}"] {
+    padding-left: #{$spacing}rem;
+  }
+
+  [padding-right="#{$spacing}"] {
+    padding-right: #{$spacing}rem;
+  }
+
+  [padding-x="#{$spacing}"] {
+    padding-left: #{$spacing}rem;
+    padding-right: #{$spacing}rem;
+  }
+
+  [padding-y="#{$spacing}"] {
+    padding-top: #{$spacing}rem;
+    padding-bottom: #{$spacing}rem;
+  }
+
+  $spacing: $spacing + 0.5;
+}
+
+[float="left"] {
+  float: left;
+}
+
+[float="right"] {
+  float: right;
+}
+
+$overflows: auto, hidden;
+@each $overflow in $overflows {
+  [overflow="#{$overflow}"] {
+    overflow: #{$overflow};
+  }
+
+  [overflow-x="#{$overflow}"] {
+    overflow-x: #{$overflow};
+  }
+
+  [overflow-y="#{$overflow}"] {
+    overflow-y: #{$overflow};
+  }
+}
+
+$scales: 1.25, 1.5, 1.75, 2;
+@each $scale in $scales {
+  [scale="#{$scale}"] {
+    transform: scale(#{$scale});
+  }
+}
+
+[cursor="pointer"] {
+  cursor: pointer;
+}

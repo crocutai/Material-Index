@@ -1,0 +1,50 @@
+$gray: rgba(200, 200, 200, 0.5);
+
+:host {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  color: $gray;
+  box-sizing: border-box;
+
+  &:focus-within {
+    color: inherit;
+  }
+}
+
+aside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  height: 2rem;
+  border: 2px solid $gray;
+  box-sizing: border-box;
+
+  &:focus-within {
+    border-color: #2196f3;
+
+    span,
+    mat-icon {
+      color: #2196f3;
+    }
+  }
+
+  .search-engine-icon,
+  mat-icon {
+    min-width: 1rem;
+    min-height: 1rem;
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  input::placeholder {
+    color: $gray;
+    text-align: center;
+    font-size: 0.75em;
+    vertical-align: center;
+  }
+}

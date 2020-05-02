@@ -1,0 +1,35 @@
+<mat-list>
+  <mat-list-item>
+    <mat-icon mat-list-icon>devices</mat-icon>
+    <div mat-line>
+      <h2>
+        <span>{{ os }}</span>
+        <small margin-left="0.5">{{ platform }}</small>
+      </h2>
+    </div>
+  </mat-list-item>
+
+  <ng-container *ngIf="details">
+    <mat-list-item *ngIf="screen">
+      <mat-icon mat-list-icon></mat-icon>
+      <span mat-line>Primary Display</span>
+      <span mat-line>{{ screen.availWidth }} x {{ screen.availHeight }}</span>
+    </mat-list-item>
+
+    <mat-list-item *ngFor="let unit of storage.units">
+      <mat-icon mat-list-icon>storage</mat-icon>
+      <span mat-line>Storage - {{ unit.name }}</span>
+      <span mat-line>
+        {{ unit.capacity | StorageSize }}
+      </span>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item *ngIf="languages">
+      <mat-icon mat-list-icon>language</mat-icon>
+      <span mat-line>Language</span>
+      <span mat-line>{{ languages }}</span>
+    </mat-list-item>
+  </ng-container>
+</mat-list>

@@ -1,0 +1,74 @@
+<mat-list>
+  <mat-list-item>
+    <mat-icon mat-list-icon>memory</mat-icon>
+
+    <div mat-line>
+      <h2 *ngIf="processors" flex-baseline margin-bottom="0.5">
+        <span>{{ (idle / total) * 100 | number: "1.0-1" }}%</span>
+        <small margin-left="0.5">available</small>
+        <div flex="auto"></div>
+        <small>{{ processors.length }} Core(s)</small>
+      </h2>
+    </div>
+
+    <mat-progress-bar
+      mat-line
+      [mode]="processors ? 'determinate' : 'indeterminate'"
+      [value]="((user + kernel) / total) * 100"
+    ></mat-progress-bar>
+  </mat-list-item>
+
+  <ng-container *ngIf="details && processors">
+    <mat-list-item>
+      <mat-icon mat-list-icon></mat-icon>
+      <ng-container
+        mat-line
+        *ngFor="let processor of processors; index as index"
+      >
+        <article>
+          <h2 flex-baseline margin-top="0.5">
+            <span>
+              {{
+                ((processor.usage.user + processor.usage.kernel) / total) * 100
+                  | number: "1.0-1"
+              }}%
+            </span>
+            <small margin-left="0.5">available</small>
+            <div flex="auto"></div>
+            <small>Core {{ index + 1 }}</small>
+          </h2>
+          <mat-progress-bar
+            mode="determinate"
+            [value]="
+              ((processor.usage.user + processor.usage.kernel) / total) * 100
+            "
+          ></mat-progress-bar>
+        </article>
+      </ng-container>
+    </mat-list-item>
+
+    <mat-list-item *ngIf="modelName">
+      <mat-icon mat-list-icon></mat-icon>
+      <span mat-line>Model Name</span>
+      <span mat-line>{{ modelName }}</span>
+    </mat-list-item>
+
+    <mat-list-item *ngIf="archName">
+      <mat-icon mat-list-icon></mat-icon>
+      <span mat-line>Architeture</span>
+      <span mat-line>{{ archName }}</span>
+    </mat-list-item>
+
+    <mat-list-item *ngIf="processors">
+      <mat-icon mat-list-icon></mat-icon>
+      <span mat-line>Number of Processor(s)</span>
+      <span mat-line>{{ processors.length }} core(s)</span>
+    </mat-list-item>
+
+    <mat-list-item *ngIf="features">
+      <mat-icon mat-list-icon></mat-icon>
+      <span mat-line>Features</span>
+      <span mat-line>{{ features }}</span>
+    </mat-list-item>
+  </ng-container>
+</mat-list>

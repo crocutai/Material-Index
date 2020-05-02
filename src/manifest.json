@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+  "name": "material-free-index",
+  "description": "Extension created by Augular.",
+  "verison": "1.0.0",
+  "default_locale": "en",
+  "chrome_uRL_overrides": {
+    "newtab": "new-tab/index.html"
+  },
+  "optional_permissions": ["system.cpu", "system.memory", "processes"]
+}

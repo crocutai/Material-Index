@@ -1,0 +1,52 @@
+<mat-list *ngIf="downloadItems">
+  <mat-list-item>
+    <mat-icon mat-list-icon>get_app</mat-icon>
+
+    <div mat-line>
+      <h2 flex-center>
+        <span>{{ dataReceived | StorageSize }}</span>
+        <small margin-left="0.5">Received</small>
+        <div flex="auto"></div>
+        <small>{{ downloadItems.length }} of Item(s)</small>
+      </h2>
+    </div>
+  </mat-list-item>
+</mat-list>
+
+<ng-container *ngIf="details">
+  <mat-card
+    *ngFor="let downloadItem of downloadItems"
+    class="mat-elevation-z8"
+    margin="0.5"
+    overflow="hidden"
+  >
+    <mat-card-header overflow="hidden">
+      <mat-card-title
+        [matTooltip]="downloadItem.filename"
+        text-overflow="hidden"
+      >
+        {{ downloadItem.filename }}
+      </mat-card-title>
+
+      <mat-card-subtitle
+        [matTooltip]="downloadItem.finalUrl"
+        text-overflow="hidden"
+      >
+        {{ downloadItem.finalUrl }}
+      </mat-card-subtitle>
+
+      <mat-card-subtitle text-overflow="hidden">
+        {{ downloadItem.bytesReceived | StorageSize }} /
+        {{ downloadItem.totalBytes | StorageSize }}
+
+        <strong *ngIf="downloadItem.paused">Paused</strong>
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-progress-bar
+        [value]="(downloadItem.bytesReceived / downloadItem.totalBytes) * 100"
+      ></mat-progress-bar>
+    </mat-card-content>
+  </mat-card>
+</ng-container>
