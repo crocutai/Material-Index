@@ -3,6 +3,10 @@
   "name": "material-free-index",
   "description": "Extension created by Augular.",
   "version": "1.0.0",
+  "background": {
+    "scripts": ["background.script.js"],
+    "persistent": false
+  },
   "options_page": "options-page/index.html",
   "chrome_url_overrides": {
     "newtab": "new-tab/index.html"
